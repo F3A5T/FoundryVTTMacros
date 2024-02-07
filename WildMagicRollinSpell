@@ -1,5 +1,6 @@
 dnd5e.documents.macro.rollItem("Magic Missile")
 
+// I got the dialog box from a stackoverflow post will update when I find it again
 //creating the dialog options//////////////////////////////////
 let levels = Array.from("123456789");
 let dialogOptions = levels.reduce((acc, lvl) => acc += `<option value='${lvl}'> Spell of caster level ${lvl} </options> `, ``);
