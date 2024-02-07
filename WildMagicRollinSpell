@@ -19,10 +19,10 @@ new Dialog({
                 if(roll.total == spellLevel)
                 {
                     let wildMagicRoll = new Roll("1d100").evaluate({async: false});
-                    wildMagic.toMessage({rollMode: 'wildMagicRoll', speaker: {alias: name}});
+                    wildMagicRoll.toMessage({rollMode: 'wildMagicRoll', speaker: {alias: name}});
                     ChatMessage.create({content: "Wild Magic Surges after you cast this spell ... something happens..."})
 
-                    switch (true) // this could look up a JS map or array or something. I don't know JS that well
+                    switch (true)
                     {
                     case (wildMagicRoll.total < 3):
                         ChatMessage.create({content: "Roll on this table at the start of each of your turns for the next minute, ignoring this result on subsequent rolls."});
@@ -57,7 +57,6 @@ new Dialog({
                         break;
                     case (wildMagicRoll.total < 30):
                         ChatMessage.create({content: "You manifest levitate on yourself. This spell does not require concentration."});
-                        dnd5e.documents.macro.rollItem("Levitate");
                         break;
                     case (wildMagicRoll.total < 33):
                         ChatMessage.create({content: "Your skin becomes translucent for 1 minute."});
@@ -94,15 +93,12 @@ new Dialog({
                         break;
                     case (wildMagicRoll.total < 66):
                         ChatMessage.create({content: "You manifest sleep at the level of the spell that triggered this surge targeting yourself."});
-                        dnd5e.documents.macro.rollItem("Sleep");
                         break;
                     case (wildMagicRoll.total < 69):
                         ChatMessage.create({content: "You manifest confusion targeting yourself. This spell does not require concentration.."});
-                        dnd5e.documents.macro.rollItem("Confusion");
                         break;
                     case (wildMagicRoll.total < 72):
                         ChatMessage.create({content: "You manifest grease centered on yourself."});
-                        dnd5e.documents.macro.rollItem("Grease");
                         break;
                     case (wildMagicRoll.total < 75):
                         ChatMessage.create({content: "You are frightened by the nearest creature until the end of your next turn.."});
@@ -112,7 +108,6 @@ new Dialog({
                         break;
                     case (wildMagicRoll.total < 81):
                         ChatMessage.create({content: "You manifest hypnotic pattern centered on you. This spell does not require concentration."});
-                        dnd5e.documents.macro.rollItem("Hypnotic Pattern");
                         break;
                     case (wildMagicRoll.total < 84):
                         ChatMessage.create({content: "For the next minute, you regain 5 Psi Points at the start of each of your turns."});
@@ -122,7 +117,6 @@ new Dialog({
                         break;
                     case (wildMagicRoll.total < 90):
                         ChatMessage.create({content: "You manifest fly on a random creature within 60 feet. It must concentrate on this effect."});
-                        dnd5e.documents.macro.rollItem("Fly");
                         break;
                     case (wildMagicRoll.total < 93):
                         ChatMessage.create({content: "Maximize the damage of the next spell you manifest within the next minute."});
@@ -132,7 +126,6 @@ new Dialog({
                         break;
                     case (wildMagicRoll.total < 99):
                         ChatMessage.create({content: "You manifest invisibility targeting yourself. This spell doesn't require your concentration."});
-                        dnd5e.documents.macro.rollItem("Invisibility");
                         break;
                     case (wildMagicRoll.total < 101):
                         ChatMessage.create({content: "You regain all expended Psi Points."});
